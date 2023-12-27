@@ -1,7 +1,7 @@
 @extends('admin')
 
 @section('content-admin')
-<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 text-center">
+<table class="w-full text-sm  text-gray-500 dark:text-gray-400 text-center">
         <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
     <tr>
     

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AnnonceController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\user\AdsController;
+use App\Http\Controllers\Admin\CategoryController;
 
 
 /*
@@ -27,7 +28,38 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('admin' , function(){
     return view('admin');
 })->name('admin')->middleware('admin');
+// route for Category 
+Route::get('admin_category', [CategoryController::class, 'index'])
+    ->name('admin_components.category')
+    ->middleware('admin');
 
+Route::get('admin_category_create', [CategoryController::class, 'create'])
+    ->name('admin_components.category_create')
+    ->middleware('admin');
+
+Route::post('admin_category_store', [CategoryController::class, 'store'])
+    ->name('admin_components.category_store')
+    ->middleware('admin');
+
+Route::get('admin_category_show/{id}', [CategoryController::class, 'show'])
+    ->name('admin_components.category_show')
+    ->middleware('admin');
+
+Route::get('admin_category_edit/{id}', [CategoryController::class, 'edit'])
+    ->name('admin_components.category_edit')
+    ->middleware('admin');
+
+Route::put('admin_category_update/{id}', [CategoryController::class, 'update'])
+
+    ->name('admin_components.category_update')
+    ->middleware('admin'); 
+
+Route::delete('admin_category_delete/{id}', [CategoryController::class, 'destroy'])
+    ->name('admin_components.category_delete')
+    ->middleware('admin');
+
+// what is the structure folder in views to add those categories routes ?
+    
 
 Route::put('admin_annonce/{id}', [AnnonceController::class, 'Valider'])->name('Bien.Valider')->middleware('admin');
 Route::put('admin_annonce/Non_Valider/{id}', [AnnonceController::class, 'Non_Valider'])->name('Non.Valider')->middleware('admin');
